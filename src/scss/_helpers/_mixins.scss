@@ -1,0 +1,79 @@
+.clearfix {
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin inlineblock($valign: top) {
+  display: inline-block;
+  vertical-align: $valign;
+}
+
+@mixin trs() {
+  transition: all linear .25s;
+}
+
+@mixin flex($justify) {
+  display: flex;
+  justify-content: $justify;
+}
+
+@mixin radius($radius) {
+  border-radius: $radius;
+}
+
+//fonts
+
+@mixin font($style: regular) {
+    @if $style == regular {
+        font-family: 'helveticaregular';
+    }
+
+    @if $style == bold {
+        font-family: 'helveticabold';
+        font-weight: bold;
+    }
+
+    @if $style == malina {
+         font-family: 'ALS Malina';
+    }
+
+    @if $style == arial {
+      font-family: 'Arial';
+    }
+
+}
+
+
+
+//responsive fonts
+@function rem ($px) {
+  @return $px/16px+0rem;
+}
+
+//breakpoints
+@mixin desktop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media screen and (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin tablet{
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet{
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
